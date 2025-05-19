@@ -48,10 +48,11 @@ int main() {
     int Usr_Data;
     Node* root = nullptr;
 
-    while (true) {
-    cout << "Choose an operation:\n [0] Exit\n [1] Create Node\n [2] Insert Node" << endl;
-    cin >> Usr_Input;
+    // Menu
 
+    while (true) {
+    cout << "Choose an operation:\n [0] Exit\n [1] Create Node\n [2] Insert Node\n [3] Print Tree (Inorder)" << endl;
+    cin >> Usr_Input;
   
     switch (Usr_Input) {
         case 1: 
@@ -67,9 +68,31 @@ int main() {
                 cout << "Root has a value already! Use [4] to delete!\n";
                 break;
             }
-       case 0:
+        case 0:
             cout << "Exiting menu...\n";
             return 0;
+        case 2:
+            if(root != nullptr){
+            cout << "Enter a value to insert: " << endl;
+            cin >> Usr_Data;
+            insertNode(root, Usr_Data);
+            cout << "The new tree is: " << endl;
+            inorderTraversal(root);
+            break;
+            } else {
+                cout << "Tree is still empty, please choose [1] to create a tree." << endl;
+                break;
+            }
+        case 3:
+            if(root != nullptr){
+                cout << "Current Tree: ";
+                inorderTraversal(root);
+                cout << endl;
+                break;
+            } else {
+                cout << "Create a tree first, choose [1] to do so!" << endl;
+                break;
+            }
     }
     }
     return 0;
