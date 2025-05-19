@@ -43,6 +43,14 @@ void inorderTraversal(Node* root)
     }
 }
 
+void preorder(Node* root) {
+    if (root != nullptr) {
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+    }
+}
+
 int main() {
     int Usr_Input;
     int Usr_Data;
@@ -51,7 +59,7 @@ int main() {
     // Menu
 
     while (true) {
-    cout << "Choose an operation:\n [0] Exit\n [1] Create Node\n [2] Insert Node\n [3] Print Tree (Inorder)" << endl;
+    cout << "Choose an operation:\n [0] Exit\n [1] Create Tree\n [2] Insert Value\n [3] Print Tree (Inorder)\n [4] Print Tree (Preorder)" << endl;
     cin >> Usr_Input;
   
     switch (Usr_Input) {
@@ -87,6 +95,16 @@ int main() {
             if(root != nullptr){
                 cout << "Current Tree: ";
                 inorderTraversal(root);
+                cout << endl;
+                break;
+            } else {
+                cout << "Create a tree first, choose [1] to do so!" << endl;
+                break;
+            }
+        case 4:
+            if(root != nullptr){
+                cout << "Current Tree: ";
+                preorder(root);
                 cout << endl;
                 break;
             } else {
